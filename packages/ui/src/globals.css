@@ -1,6 +1,62 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-departure: var(--font-departure-mono);
+
+  --color-background: oklch(from hsl(0 0% 100%) l c h);
+  --color-foreground: oklch(from hsl(222.2 84% 4.9%) l c h);
+  --color-card: oklch(from hsl(0 0% 100%) l c h);
+  --color-card-foreground: oklch(from hsl(222.2 84% 4.9%) l c h);
+  --color-popover: oklch(from hsl(0 0% 100%) l c h);
+  --color-popover-foreground: oklch(from hsl(222.2 84% 4.9%) l c h);
+  --color-primary: oklch(from hsl(222.2 47.4% 11.2%) l c h);
+  --color-primary-foreground: oklch(from hsl(210 40% 98%) l c h);
+  --color-secondary: oklch(from hsl(210 40% 96.1%) l c h);
+  --color-secondary-foreground: oklch(from hsl(222.2 47.4% 11.2%) l c h);
+  --color-muted: oklch(from hsl(210 40% 96.1%) l c h);
+  --color-muted-foreground: oklch(from hsl(215.4 16.3% 46.9%) l c h);
+  --color-accent: oklch(from hsl(210 40% 96.1%) l c h);
+  --color-accent-foreground: oklch(from hsl(222.2 47.4% 11.2%) l c h);
+  --color-destructive: oklch(from hsl(0 84.2% 60.2%) l c h);
+  --color-destructive-foreground: oklch(from hsl(210 40% 98%) l c h);
+  --color-border: oklch(from hsl(214.3 31.8% 91.4%) l c h);
+  --color-input: oklch(from hsl(214.3 31.8% 91.4%) l c h);
+  --color-ring: oklch(from hsl(222.2 84% 4.9%) l c h);
+  --color-chart-1: oklch(from hsl(12 76% 61%) l c h);
+  --color-chart-2: oklch(from hsl(173 58% 39%) l c h);
+  --color-chart-3: oklch(from hsl(197 37% 24%) l c h);
+  --color-chart-4: oklch(from hsl(43 74% 66%) l c h);
+  --color-chart-5: oklch(from hsl(27 87% 67%) l c h);
+
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-marquee: marquee 25s linear infinite;
+  --animate-marquee2: marquee2 25s linear infinite;
+
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  @keyframes marquee2 {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0%); }
+  }
+}
 
 @layer base {
   :root {
@@ -57,13 +113,13 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
 
-@layer base {
   * {
-    @apply border-border;
+    border-color: var(--color-border);
   }
+
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
   }
 }
