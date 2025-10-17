@@ -451,10 +451,10 @@ export default function CreateEventWizard() {
                   Step {currentStep} of {totalSteps}
                 </div>
                 <h2 className="text-xl leading-snug text-gray-800 dark:text-gray-100 font-bold mb-2">
-                  {steps[currentStep - 1].title}
+                  {steps[currentStep - 1]?.title}
                 </h2>
                 <p className="text-sm">
-                  {steps[currentStep - 1].description}
+                  {steps[currentStep - 1]?.description}
                 </p>
               </div>
 
