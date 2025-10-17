@@ -157,7 +157,7 @@ export default function Jobs() {
               <h4 className="text-gray-800 dark:text-gray-100 font-medium mb-4">Programming</h4>
               {/* Job list */}
               <div className="space-y-2">
-                {jobs[0].map(job => (
+                {jobs[0]!.map(job => (
                   <JobsItem
                     key={job.id}
                     job={job} />
@@ -170,7 +170,7 @@ export default function Jobs() {
               <h4 className="text-gray-800 dark:text-gray-100 font-medium mb-4">Design</h4>
               {/* Job list */}
               <div className="space-y-2">
-                {jobs[1].map(job => (
+                {jobs[1]!.map(job => (
                   <JobsItem
                     key={job.id}
                     job={job} />
@@ -183,7 +183,7 @@ export default function Jobs() {
               <h4 className="text-gray-800 dark:text-gray-100 font-medium mb-4">Management / Finance</h4>
               {/* Job list */}
               <div className="space-y-2">
-                {jobs[2].map(job => (
+                {jobs[2]!.map(job => (
                   <JobsItem
                     key={job.id}
                     job={job} />

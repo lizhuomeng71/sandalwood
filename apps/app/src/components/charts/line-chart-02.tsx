@@ -89,7 +89,7 @@ export default function LineChart02({
           tooltip: {
             callbacks: {
               title: () => '', // Disable tooltip title
-              label: (context) => formatValue(context.parsed.y),
+              label: (context) => formatValue(context.parsed.y ?? 0),
             },
             bodyColor: darkMode ? tooltipBodyColor.dark : tooltipBodyColor.light,
             backgroundColor: darkMode ? tooltipBgColor.dark : tooltipBgColor.light,
@@ -134,7 +134,7 @@ export default function LineChart02({
               box.style.borderRadius = 'calc(infinity * 1px)'
               box.style.marginRight = '8px'
               box.style.borderWidth = '3px'
-              box.style.borderColor = c.data.datasets[item.datasetIndex!].borderColor as string
+              box.style.borderColor = c.data.datasets[item.datasetIndex!]!.borderColor as string
               box.style.pointerEvents = 'none'
               // Label
               const label = document.createElement('span')

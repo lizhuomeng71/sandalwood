@@ -94,7 +94,7 @@ export default function RealtimeChart({
               weight: 600,
             },
             callbacks: {
-              label: (context) => formatValue(context.parsed.y),
+              label: (context) => formatValue(context.parsed.y ?? 0),
             },
             titleColor: darkMode ? tooltipTitleColor.dark : tooltipTitleColor.light,
             bodyColor: darkMode ? tooltipBodyColor.dark : tooltipBodyColor.light,
@@ -117,8 +117,8 @@ export default function RealtimeChart({
   // Update header values
   useEffect(() => {
     if (chartValue.current && chartDeviation.current) {
-      const currentValue = data.datasets[0].data[data.datasets[0].data.length - 1] || 0
-      const previousValue = data.datasets[0].data[data.datasets[0].data.length - 2] || 0
+      const currentValue = data.datasets[0]!.data[data.datasets[0]!.data.length - 1] || 0
+      const previousValue = data.datasets[0]!.data[data.datasets[0]!.data.length - 2] || 0
       const diff = ((+currentValue - +previousValue) / +previousValue) * 100
       chartValue.current.innerHTML = currentValue.toString()
       if (diff < 0) {

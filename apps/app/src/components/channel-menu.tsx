@@ -33,9 +33,9 @@ export default function ChannelMenu() {
     <>
       <Menu as="div" className="relative">
         <MenuButton className="grow flex items-center truncate">
-          <Image className="w-8 h-8 rounded-full mr-2" src={options[selected].image} width={32} height={32} alt="Group 01" />
+          <Image className="w-8 h-8 rounded-full mr-2" src={options[selected]!.image} width={32} height={32} alt="Group 01" />
           <div className="truncate">
-            <span className="font-semibold text-gray-800 dark:text-gray-100">#{options[selected].channel}</span>
+            <span className="font-semibold text-gray-800 dark:text-gray-100">#{options[selected]!.channel}</span>
           </div>
           <svg className="w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 dark:text-gray-500" viewBox="0 0 12 12">
             <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />

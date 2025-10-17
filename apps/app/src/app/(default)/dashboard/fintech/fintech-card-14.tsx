@@ -170,7 +170,7 @@ export default function FintechCard14() {
                   {/* Chart built with Chart.js 3 */}
                   <div className="w-[96px]">
                     {/* Change the height attribute to adjust the chart height */}
-                    <LineChart09 data={chartData[0]} width={96} height={32} />
+                    <LineChart09 data={chartData[0]!} width={96} height={32} />
                   </div>
                 </td>
                 <td className="p-2 whitespace-nowrap">
@@ -205,7 +205,7 @@ export default function FintechCard14() {
                   {/* Chart built with Chart.js 3 */}
                   <div className="w-[96px]">
                     {/* Change the height attribute to adjust the chart height */}
-                    <LineChart09 data={chartData[1]} width={96} height={32} />
+                    <LineChart09 data={chartData[1]!} width={96} height={32} />
                   </div>
                 </td>
                 <td className="p-2 whitespace-nowrap">
@@ -240,7 +240,7 @@ export default function FintechCard14() {
                   {/* Chart built with Chart.js 3 */}
                   <div className="w-[96px]">
                     {/* Change the height attribute to adjust the chart height */}
-                    <LineChart09 data={chartData[2]} width={96} height={32} />
+                    <LineChart09 data={chartData[2]!} width={96} height={32} />
                   </div>
                 </td>
                 <td className="p-2 whitespace-nowrap">
@@ -276,7 +276,7 @@ export default function FintechCard14() {
                   {/* Chart built with Chart.js 3 */}
                   <div className="w-[96px]">
                     {/* Change the height attribute to adjust the chart height */}
-                    <LineChart09 data={chartData[3]} width={96} height={32} />
+                    <LineChart09 data={chartData[3]!} width={96} height={32} />
                   </div>
                 </td>
                 <td className="p-2 whitespace-nowrap">
@@ -311,7 +311,7 @@ export default function FintechCard14() {
                   {/* Chart built with Chart.js 3 */}
                   <div className="w-[96px]">
                     {/* Change the height attribute to adjust the chart height */}
-                    <LineChart09 data={chartData[4]} width={96} height={32} />
+                    <LineChart09 data={chartData[4]!} width={96} height={32} />
                   </div>
                 </td>
                 <td className="p-2 whitespace-nowrap">

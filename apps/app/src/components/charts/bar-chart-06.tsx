@@ -94,7 +94,7 @@ export default function BarChart06({
           tooltip: {
             callbacks: {
               title: () => '', // Disable tooltip title
-              label: (context) => formatValue(context.parsed.x),
+              label: (context) => formatValue(context.parsed.x ?? 0),
             },
             bodyColor: darkMode ? tooltipBodyColor.dark : tooltipBodyColor.light,
             backgroundColor: darkMode ? tooltipBgColor.dark : tooltipBgColor.light,
@@ -167,9 +167,13 @@ export default function BarChart06({
           beforeDraw(c) {
             const xAxis = c.scales.x
             const yAxis = c.scales.y
+            if (!xAxis || !yAxis) return
             yAxis.ticks.forEach((value, index) => {
               const y = yAxis.getPixelForTick(index)
-              c.ctx.drawImage(imageEls[index], xAxis.left - 52, y - 18)
+              const img = imageEls[index]
+              if (img) {
+                c.ctx.drawImage(img, xAxis.left - 52, y - 18)
+              }
             })
           },
         },

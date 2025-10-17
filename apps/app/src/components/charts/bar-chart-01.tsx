@@ -91,7 +91,7 @@ export default function BarChart01({
           tooltip: {
             callbacks: {
               title: () => '', // Disable tooltip title
-              label: (context) => formatValue(context.parsed.y),
+              label: (context) => formatValue(context.parsed.y ?? 0),
             },
             bodyColor: darkMode ? tooltipBodyColor.dark : tooltipBodyColor.light,
             backgroundColor: darkMode ? tooltipBgColor.dark : tooltipBgColor.light,
@@ -156,7 +156,7 @@ export default function BarChart01({
             label.style.fontSize = '14px'
             label.style.lineHeight = 'calc(1.25 / 0.875)'
             // @ts-ignore
-            const theValue: number = c.data.datasets[item.datasetIndex!].data.reduce((a, b) => a + b, 0)
+            const theValue: number = c.data.datasets[item.datasetIndex!]!.data.reduce((a, b) => a + b, 0)
             const valueText = document.createTextNode(formatValue(theValue))
             const labelText = document.createTextNode(item.text)
             value.appendChild(valueText)
