@@ -58,7 +58,7 @@ export default function DashboardCard05() {
   useEffect(() => {
     setIncrement(increment + 1)
     if (increment + range < data.length) {
-      setSlicedData(([x, ...slicedData]) => [...slicedData, data[increment + range]])
+      setSlicedData(([x, ...slicedData]) => [...slicedData, data[increment + range]!])
     } else {
       setIncrement(0)
       setRange(0)
