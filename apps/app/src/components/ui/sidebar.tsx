@@ -96,7 +96,7 @@ export default function Sidebar({
               </li>
               {/* Discover */}
               <li className={`pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r ${segments.includes('discover') && 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]'}`}>
-                <SidebarLink href="/community/meetups">
+                <SidebarLink href="/community/events">
                   <div className="flex items-center">
                     <svg className={`shrink-0 fill-current ${segments.includes('discover') ? 'text-violet-500' : 'text-gray-400 dark:text-gray-500'}`} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                       <path d="M5.936.278A7.983 7.983 0 0 1 8 0a8 8 0 1 1-8 8c0-.722.104-1.413.278-2.064a1 1 0 1 1 1.932.516A5.99 5.99 0 0 0 2 8a6 6 0 1 0 6-6c-.53 0-1.045.076-1.548.21A1 1 0 1 1 5.936.278Z" />
@@ -145,28 +145,28 @@ export default function Sidebar({
                       <div className="lg:hidden lg:sidebar-expanded:block 2xl:block">
                         <ul className={`pl-8 mt-1 ${!open && 'hidden'}`}>
                           <li className="mb-1 last:mb-0">
-                            <SidebarLink href="/community/meetups">
+                            <SidebarLink href="/community/events">
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                                 I'm Attending
                               </span>
                             </SidebarLink>
                           </li>
                           <li className="mb-1 last:mb-0">
-                            <SidebarLink href="/community/meetups">
+                            <SidebarLink href="/community/events">
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                                 I'm Hosting
                               </span>
                             </SidebarLink>
                           </li>
                           <li className="mb-1 last:mb-0">
-                            <SidebarLink href="/community/meetups">
+                            <SidebarLink href="/community/events">
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                                 Past Events
                               </span>
                             </SidebarLink>
                           </li>
                           <li className="mb-1 last:mb-0">
-                            <SidebarLink href="/community/meetups/create">
+                            <SidebarLink href="/community/events/create">
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                                 Create Event
                               </span>
@@ -285,7 +285,7 @@ export default function Sidebar({
             <ul className="mt-3">
                {/* Help / FAQ */}
               <li className={`pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r ${segments.includes('dashboard') && 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]'}`}>
-                <SidebarLink href="/community/meetups">
+                <SidebarLink href="/community/events">
                   <div className="flex items-center">
                     <svg className={`shrink-0 fill-current ${segments.includes('dashboard') ? 'text-violet-500' : 'text-gray-400 dark:text-gray-500'}`} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                       <path d="M5.936.278A7.983 7.983 0 0 1 8 0a8 8 0 1 1-8 8c0-.722.104-1.413.278-2.064a1 1 0 1 1 1.932.516A5.99 5.99 0 0 0 2 8a6 6 0 1 0 6-6c-.53 0-1.045.076-1.548.21A1 1 0 1 1 5.936.278Z" />
@@ -299,7 +299,7 @@ export default function Sidebar({
               </li>
                {/* Dashboard */}
               <li className={`pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r ${segments.includes('dashboard') && 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]'}`}>
-                <SidebarLink href="/community/meetups">
+                <SidebarLink href="/community/events">
                   <div className="flex items-center">
                     <svg className={`shrink-0 fill-current ${segments.includes('dashboard') ? 'text-violet-500' : 'text-gray-400 dark:text-gray-500'}`} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                       <path d="M5.936.278A7.983 7.983 0 0 1 8 0a8 8 0 1 1-8 8c0-.722.104-1.413.278-2.064a1 1 0 1 1 1.932.516A5.99 5.99 0 0 0 2 8a6 6 0 1 0 6-6c-.53 0-1.045.076-1.548.21A1 1 0 1 1 5.936.278Z" />
@@ -313,7 +313,7 @@ export default function Sidebar({
               </li>
                {/* Dashboard */}
               <li className={`pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r ${segments.includes('dashboard') && 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]'}`}>
-                <SidebarLink href="/community/meetups">
+                <SidebarLink href="/community/events">
                   <div className="flex items-center">
                     <svg className={`shrink-0 fill-current ${segments.includes('dashboard') ? 'text-violet-500' : 'text-gray-400 dark:text-gray-500'}`} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                       <path d="M5.936.278A7.983 7.983 0 0 1 8 0a8 8 0 1 1-8 8c0-.722.104-1.413.278-2.064a1 1 0 1 1 1.932.516A5.99 5.99 0 0 0 2 8a6 6 0 1 0 6-6c-.53 0-1.045.076-1.548.21A1 1 0 1 1 5.936.278Z" />

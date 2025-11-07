@@ -337,16 +337,16 @@ export default function Sidebar({
                             </SidebarLink>
                           </li>
                           <li className="mb-1 last:mb-0">
-                            <SidebarLink href="/community/meetups">
+                            <SidebarLink href="/community/events">
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                Meetups
+                                Events
                               </span>
                             </SidebarLink>
                           </li>
                           <li className="mb-1 last:mb-0">
-                            <SidebarLink href="/community/meetups/post">
+                            <SidebarLink href="/community/events/post">
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                Meetups - Post
+                                Events - Post
                               </span>
                             </SidebarLink>
                           </li>

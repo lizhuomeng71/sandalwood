@@ -10,18 +10,20 @@ export const env = createEnv({
     PORT: z.coerce.number().default(3000),
   },
   server: {
-    OPENPANEL_SECRET_KEY: z.string(),
-    RESEND_API_KEY: z.string(),
+    API_URL: z.string().default("http://localhost:3001"),
+    OPENPANEL_SECRET_KEY: z.string().optional(),
+    RESEND_API_KEY: z.string().optional(),
     SUPABASE_SERVICE_KEY: z.string(),
-    UPSTASH_REDIS_REST_TOKEN: z.string(),
-    UPSTASH_REDIS_REST_URL: z.string(),
+    UPSTASH_REDIS_REST_TOKEN: z.string().optional(),
+    UPSTASH_REDIS_REST_URL: z.string().optional(),
   },
   client: {
-    NEXT_PUBLIC_OPENPANEL_CLIENT_ID: z.string(),
+    NEXT_PUBLIC_OPENPANEL_CLIENT_ID: z.string().optional(),
     NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string(),
     NEXT_PUBLIC_SUPABASE_URL: z.string(),
   },
   runtimeEnv: {
+    API_URL: process.env.API_URL,
     NEXT_PUBLIC_OPENPANEL_CLIENT_ID:
       process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID,
     NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,

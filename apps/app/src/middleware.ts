@@ -5,9 +5,31 @@ export async function middleware(request: NextRequest) {
   const response = NextResponse.next();
   const { response: updatedResponse, user } = await updateSession(request, response);
 
-  // if (!request.nextUrl.pathname.endsWith("/signin") && !user) {
-  //   return NextResponse.redirect(new URL("/signin", request.url));
-  // }
+  const pathname = request.nextUrl.pathname;
+
+  // Public routes that don't require authentication
+  const publicRoutes = [
+    "/signin",
+    "/signup",
+    "/reset-password",
+    "/auth/callback",
+  ];
+
+  // Check if the current path is a public route
+  const isPublicRoute = publicRoutes.some((route) => pathname.startsWith(route));
+
+  // If user is not authenticated and trying to access a protected route, redirect to signin
+  if (!user && !isPublicRoute) {
+    const signInUrl = new URL("/signin", request.url);
+    // Add the original URL as a redirect parameter so we can send them back after login
+    signInUrl.searchParams.set("redirect", pathname);
+    return NextResponse.redirect(signInUrl);
+  }
+
+  // If user is authenticated and trying to access signin/signup, redirect to dashboard
+  if (user && (pathname === "/signin" || pathname === "/signup")) {
+    return NextResponse.redirect(new URL("/dashboard", request.url));
+  }
 
   return updatedResponse;
 }

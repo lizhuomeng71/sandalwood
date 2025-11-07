@@ -1,183 +1,228 @@
-# Supabase CLI
+# Standalone API Server
 
-[![Coverage Status](https://coveralls.io/repos/github/supabase/cli/badge.svg?branch=main)](https://coveralls.io/github/supabase/cli?branch=main) [![Bitbucket Pipelines](https://img.shields.io/bitbucket/pipelines/supabase-cli/setup-cli/master?style=flat-square&label=Bitbucket%20Canary)](https://bitbucket.org/supabase-cli/setup-cli/pipelines) [![Gitlab Pipeline Status](https://img.shields.io/gitlab/pipeline-status/sweatybridge%2Fsetup-cli?label=Gitlab%20Canary)
-](https://gitlab.com/sweatybridge/setup-cli/-/pipelines)
+A standalone REST API server built with Next.js Route Handlers that can be called by both web and mobile applications.
 
-[Supabase](https://supabase.io) is an open source Firebase alternative. We're building the features of Firebase using enterprise-grade open source tools.
+## Features
 
-This repository contains all the functionality for Supabase CLI.
+- Built with Next.js 15 Route Handlers
+- RESTful endpoints for events and registrations
+- CORS enabled for web and mobile clients
+- TypeScript support
+- Hot reload in development
+- Supabase integration
+- Can be deployed separately from the main app
 
-- [x] Running Supabase locally
-- [x] Managing database migrations
-- [x] Creating and deploying Supabase Functions
-- [x] Generating types directly from your database schema
-- [x] Making authenticated HTTP requests to [Management API](https://supabase.com/docs/reference/api/introduction)
+## Getting Started
 
-## Getting started
+### Prerequisites
 
-### Install the CLI
+- Bun installed
+- Supabase running locally (or remote instance)
 
-Available via [NPM](https://www.npmjs.com) as dev dependency. To install:
+### Installation
+
+From the monorepo root:
+```bash
+bun install
+```
+
+Or from the api directory:
+```bash
+cd apps/api
+bun install
+```
+
+### Configuration
+
+Create a `.env` or `.env.local` file and configure:
+
+```env
+# Supabase
+SUPABASE_URL=http://127.0.0.1:54321
+SUPABASE_SERVICE_KEY=your_service_key
+
+# CORS - comma separated origins
+ALLOWED_ORIGINS=http://localhost:3000,http://localhost:3002
+```
+
+### Running the Server
+
+Development mode (with hot reload):
+```bash
+bun run dev
+```
+
+Build for production:
+```bash
+bun run build
+```
+
+Production mode:
+```bash
+bun run start
+```
+
+The API will be available at `http://localhost:3001`
+
+## API Endpoints
+
+### Health Check
+
+- `GET /` - API info
+- `GET /health` - Health check
+
+### Events
+
+- `GET /api/events` - Get all events
+- `GET /api/events/:id` - Get single event
+- `POST /api/events` - Create event
+- `PUT /api/events/:id` - Update event
+- `DELETE /api/events/:id` - Delete event
+- `GET /api/events/:id/components` - Get event components
+- `POST /api/events/:id/components` - Add event component
+
+### Registrations
+
+- `GET /api/registrations` - Get all registrations
+  - Query params: `event_id`, `user_id`
+- `GET /api/registrations/:id` - Get single registration
+- `POST /api/registrations` - Create registration
+- `PUT /api/registrations/:id` - Update registration
+- `DELETE /api/registrations/:id` - Cancel registration
+- `GET /api/registrations/event/:eventId/count` - Get registration count
+
+## Example Usage
+
+### Create an Event
 
 ```bash
-npm i supabase --save-dev
+curl -X POST http://localhost:3001/api/events \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Community Meetup",
+    "description": "Monthly meetup",
+    "start_time": "2025-11-01T18:00:00Z",
+    "end_time": "2025-11-01T20:00:00Z",
+    "location": "Downtown"
+  }'
 ```
 
-To install the beta release channel:
+### Register for an Event
 
 ```bash
-npm i supabase@beta --save-dev
+curl -X POST http://localhost:3001/api/registrations \
+  -H "Content-Type: application/json" \
+  -d '{
+    "event_id": "event-uuid",
+    "user_id": "user-uuid"
+  }'
 ```
 
-When installing with yarn 4, you need to disable experimental fetch with the following nodejs config.
-
-```
-NODE_OPTIONS=--no-experimental-fetch yarn add supabase
-```
-
-> **Note**
-For Bun versions below v1.0.17, you must add `supabase` as a [trusted dependency](https://bun.sh/guides/install/trusted) before running `bun add -D supabase`.
-
-<details>
-  <summary><b>macOS</b></summary>
-
-  Available via [Homebrew](https://brew.sh). To install:
-
-  ```sh
-  brew install supabase/tap/supabase
-  ```
-
-  To install the beta release channel:
-  
-  ```sh
-  brew install supabase/tap/supabase-beta
-  brew link --overwrite supabase-beta
-  ```
-  
-  To upgrade:
-
-  ```sh
-  brew upgrade supabase
-  ```
-</details>
-
-<details>
-  <summary><b>Windows</b></summary>
-
-  Available via [Scoop](https://scoop.sh). To install:
-
-  ```powershell
-  scoop bucket add supabase https://github.com/supabase/scoop-bucket.git
-  scoop install supabase
-  ```
-
-  To upgrade:
-
-  ```powershell
-  scoop update supabase
-  ```
-</details>
-
-<details>
-  <summary><b>Linux</b></summary>
-
-  Available via [Homebrew](https://brew.sh) and Linux packages.
-
-  #### via Homebrew
-
-  To install:
-
-  ```sh
-  brew install supabase/tap/supabase
-  ```
-
-  To upgrade:
-
-  ```sh
-  brew upgrade supabase
-  ```
-
-  #### via Linux packages
-
-  Linux packages are provided in [Releases](https://github.com/supabase/cli/releases). To install, download the `.apk`/`.deb`/`.rpm`/`.pkg.tar.zst` file depending on your package manager and run the respective commands.
-
-  ```sh
-  sudo apk add --allow-untrusted <...>.apk
-  ```
-
-  ```sh
-  sudo dpkg -i <...>.deb
-  ```
-
-  ```sh
-  sudo rpm -i <...>.rpm
-  ```
-
-  ```sh
-  sudo pacman -U <...>.pkg.tar.zst
-  ```
-</details>
-
-<details>
-  <summary><b>Other Platforms</b></summary>
-
-  You can also install the CLI via [go modules](https://go.dev/ref/mod#go-install) without the help of package managers.
-
-  ```sh
-  go install github.com/supabase/cli@latest
-  ```
-
-  Add a symlink to the binary in `$PATH` for easier access:
-
-  ```sh
-  ln -s "$(go env GOPATH)/bin/cli" /usr/bin/supabase
-  ```
-
-  This works on other non-standard Linux distros.
-</details>
-
-<details>
-  <summary><b>Community Maintained Packages</b></summary>
-
-  Available via [pkgx](https://pkgx.sh/). Package script [here](https://github.com/pkgxdev/pantry/blob/main/projects/supabase.com/cli/package.yml).
-  To install in your working directory:
-
-  ```bash
-  pkgx install supabase
-  ```
-
-  Available via [Nixpkgs](https://nixos.org/). Package script [here](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/tools/supabase-cli/default.nix).
-</details>
-
-### Run the CLI
+### Get All Events
 
 ```bash
-supabase bootstrap
+curl http://localhost:3001/api/events
 ```
 
-Or using npx:
+## Mobile App Integration
+
+To use this API in your mobile app:
+
+1. Ensure the API server is running
+2. Update `ALLOWED_ORIGINS` in `.env` to include your mobile app's origin
+3. Use the base URL `http://localhost:3001` for local testing
+4. For production, deploy the API and use the production URL
+
+Example mobile app configuration:
+
+```typescript
+const API_BASE_URL = __DEV__
+  ? 'http://localhost:3001'
+  : 'https://api.yourdomain.com';
+
+fetch(`${API_BASE_URL}/api/events`)
+  .then(res => res.json())
+  .then(data => console.log(data));
+```
+
+## Project Structure
+
+```
+apps/api/
+├── app/
+│   ├── api/
+│   │   ├── events/
+│   │   │   ├── route.ts                    # GET, POST /api/events
+│   │   │   └── [id]/
+│   │   │       ├── route.ts                # GET, PUT, DELETE /api/events/:id
+│   │   │       └── components/
+│   │   │           └── route.ts            # GET, POST /api/events/:id/components
+│   │   ├── registrations/
+│   │   │   ├── route.ts                    # GET, POST /api/registrations
+│   │   │   ├── [id]/
+│   │   │   │   └── route.ts                # GET, PUT, DELETE /api/registrations/:id
+│   │   │   └── event/
+│   │   │       └── [eventId]/
+│   │   │           └── count/
+│   │   │               └── route.ts        # GET count
+│   │   └── health/
+│   │       └── route.ts                    # Health check
+│   ├── lib/
+│   │   └── supabase.ts                     # Supabase client
+│   └── page.tsx                            # Home page with API docs
+├── supabase/                               # Supabase migrations and config
+├── .env.local                              # Environment variables
+├── next.config.js                          # Next.js configuration
+├── package.json
+└── tsconfig.json
+```
+
+## Supabase Management
+
+### Start Supabase locally
 
 ```bash
-npx supabase bootstrap
+bun run supabase:start
 ```
 
-The bootstrap command will guide you through the process of setting up a Supabase project using one of the [starter](https://github.com/supabase-community/supabase-samples/blob/main/samples.json) templates.
+### Run migrations
 
-## Docs
-
-Command & config reference can be found [here](https://supabase.com/docs/reference/cli/about).
-
-## Breaking changes
-
-We follow semantic versioning for changes that directly impact CLI commands, flags, and configurations.
-
-However, due to dependencies on other service images, we cannot guarantee that schema migrations, seed.sql, and generated types will always work for the same CLI major version. If you need such guarantees, we encourage you to pin a specific version of CLI in package.json.
-
-## Developing
-
-To run from source:
-
-```sh
-# Go >= 1.22
-go run . help
+```bash
+bun run migrate
 ```
+
+### Reset database
+
+```bash
+bun run reset
+```
+
+### Generate TypeScript types
+
+```bash
+bun run generate
+```
+
+## Deployment
+
+The API can be deployed to any platform that supports Next.js:
+
+- Vercel (recommended for Next.js)
+- Railway
+- Render
+- Fly.io
+- Any platform with Node.js or Bun support
+
+Make sure to set environment variables in your deployment platform.
+
+### Example Vercel Deployment
+
+```bash
+cd apps/api
+vercel --prod
+```
+
+Set environment variables in Vercel dashboard:
+- `SUPABASE_URL`
+- `SUPABASE_SERVICE_KEY`
+- `ALLOWED_ORIGINS`

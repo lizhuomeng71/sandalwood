@@ -2,7 +2,10 @@
   "name": "@v1/api",
   "private": true,
   "scripts": {
-    "dev": "supabase start",
+    "dev": "next dev --port 3001",
+    "build": "next build",
+    "start": "next start --port 3001",
+    "supabase:start": "supabase start",
     "login": "supabase login",
     "migrate": "supabase migration up",
     "seed": "supabase db seed generate && supabase db seed run",
@@ -10,6 +13,16 @@
     "generate": "supabase gen types --lang=typescript --local --schema public > ../../packages/supabase/src/types/db.ts"
   },
   "dependencies": {
+    "next": "^15.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@supabase/supabase-js": "^2.45.4",
     "supabase": "^1.191.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.5.4"
   }
 }

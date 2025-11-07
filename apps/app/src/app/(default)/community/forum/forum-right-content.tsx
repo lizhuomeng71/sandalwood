@@ -21,7 +21,7 @@ export default function ForumRightContent() {
 
             {/* Block 1 */}
             <div className="bg-white dark:bg-gray-800 p-4 rounded-xl">
-              <div className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase mb-4">Forum Meetups</div>
+              <div className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase mb-4">Forum Events</div>
               <ul>
                 {/* Event 1 */}
                 <li className="relative pb-4 last-of-type:pb-0">

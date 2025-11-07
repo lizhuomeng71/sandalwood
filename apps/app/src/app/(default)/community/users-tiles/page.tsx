@@ -30,7 +30,7 @@ export default function UsersTabs() {
       image: Image01,
       link: '#0',
       location: '🇮🇹',
-      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.',
+      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Event Organizer & PHP Lover.',
     },
     {
       id: 1,
@@ -38,7 +38,7 @@ export default function UsersTabs() {
       image: Image02,
       link: '#0',
       location: '🇫🇷',
-      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.',
+      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Event Organizer & PHP Lover.',
     },
     {
       id: 2,
@@ -46,7 +46,7 @@ export default function UsersTabs() {
       image: Image03,
       link: '#0',
       location: '🇩🇪',
-      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.',
+      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Event Organizer & PHP Lover.',
     },
     {
       id: 3,
@@ -54,7 +54,7 @@ export default function UsersTabs() {
       image: Image04,
       link: '#0',
       location: '🇮🇹',
-      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.',
+      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Event Organizer & PHP Lover.',
     },
     {
       id: 4,
@@ -62,7 +62,7 @@ export default function UsersTabs() {
       image: Image05,
       link: '#0',
       location: '🇪🇸',
-      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.',
+      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Event Organizer & PHP Lover.',
     },
     {
       id: 5,
@@ -70,7 +70,7 @@ export default function UsersTabs() {
       image: Image06,
       link: '#0',
       location: '🇩🇪',
-      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.',
+      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Event Organizer & PHP Lover.',
     },
     {
       id: 6,
@@ -78,7 +78,7 @@ export default function UsersTabs() {
       image: Image07,
       link: '#0',
       location: '🇬🇧',
-      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.',
+      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Event Organizer & PHP Lover.',
     },
     {
       id: 7,
@@ -86,7 +86,7 @@ export default function UsersTabs() {
       image: Image08,
       link: '#0',
       location: '🇺🇸',
-      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.',
+      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Event Organizer & PHP Lover.',
     },
     {
       id: 8,
@@ -94,7 +94,7 @@ export default function UsersTabs() {
       image: Image09,
       link: '#0',
       location: '🇮🇳',
-      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.',
+      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Event Organizer & PHP Lover.',
     },
     {
       id: 9,
@@ -102,7 +102,7 @@ export default function UsersTabs() {
       image: Image10,
       link: '#0',
       location: '🇮🇹',
-      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.',
+      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Event Organizer & PHP Lover.',
     },
     {
       id: 10,
@@ -110,7 +110,7 @@ export default function UsersTabs() {
       image: Image11,
       link: '#0',
       location: '🇨🇦',
-      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.',
+      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Event Organizer & PHP Lover.',
     },
     {
       id: 11,
@@ -118,7 +118,7 @@ export default function UsersTabs() {
       image: Image12,
       link: '#0',
       location: '🇧🇪',
-      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.',
+      content: 'Fitness Fanatic, Design Enthusiast, Mentor, Event Organizer & PHP Lover.',
     },
   ]
 

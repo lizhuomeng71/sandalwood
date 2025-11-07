@@ -83,7 +83,7 @@ export default function ProfileBody() {
             </svg>
           </div>
           {/* Bio */}
-          <div className="text-sm mb-3">Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.</div>
+          <div className="text-sm mb-3">Fitness Fanatic, Design Enthusiast, Mentor, Event Organizer & PHP Lover.</div>
           {/* Meta */}
           <div className="flex flex-wrap justify-center sm:justify-start space-x-4">
             <div className="flex items-center">

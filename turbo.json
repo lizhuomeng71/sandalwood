@@ -8,8 +8,10 @@
     },
     "build": {
       "env": [
+        "SUPABASE_URL",
         "SUPABASE_SERVICE_KEY",
         "SUPABASE_API_KEY",
+        "ALLOWED_ORIGINS",
         "RESEND_API_KEY",
         "LOOPS_ENDPOINT",
         "LOOPS_API_KEY",
